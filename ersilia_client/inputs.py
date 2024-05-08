@@ -133,42 +133,6 @@ class CompoundInput(BaseInput):
             return None
         else:
             raise Exception
-        # TODO complex input types adaptor
-        if self._is_shape_pair():
-            if self._is_string_input():
-                r = self._input_data.split(".")
-                if len(r) != 2:
-                    raise Exception
-                return [r]
-            if self._is_list():
-                if len(self._input_data) == 2 and type(self._input_data[0]) is str:
-                    return [self._input_data]
-                else:
-                    for r in self._input_data:
-                        if len(r) != 2:
-                            raise Exception
-                    return self._input_data
-            if self._is_csv_file() or self._is_tsv_file():
-                return self._parse_twocolumn_file()
-        if self._is_shape_list():
-            if self._is_list():
-                for r in self._input_data:
-                    if type(r) is str:
-                        return self._input_data
-                    else:
-                        raise Exception
-            if self._is_csv_file() or self._is_tsv_file():
-                return self._parse_onecolumn_file()
-        if self._is_shape_pair_of_lists():
-            if self._is_list():
-                if len(self._input_data) == 2:
-                    return self._input_data
-                else:
-                    raise Exception
-            if self._is_csv_file() or self._is_tsv_file():
-                return self._parse_twocolumn_file()
-        if self._is_shape_list_of_lists():
-            pass
 
 
 class MasterInput(object):

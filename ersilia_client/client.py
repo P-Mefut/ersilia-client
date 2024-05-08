@@ -2,15 +2,15 @@ import requests
 import json
 import pandas as pd
 
-from inputs import MasterInput
-from outputs import MasterOutput
+from .inputs import MasterInput
+from .outputs import MasterOutput
 
 
 class ErsiliaClient(object):
-    def __init__(self, model_id=None, url=None):
+    def __init__(self, url):
         self.url = url
-        self.model_id = model_id
         self.info = self._info()
+        self.model_id = self.info["card"]["Identifier"]
 
     def _info(self):
         url = self.url + "/info"
@@ -18,17 +18,17 @@ class ErsiliaClient(object):
         data = "{}"
         response = requests.post(url, headers=headers, data=data)
         return json.loads(response.text)
-
+    
     def _serialize_to_json(self, input_data):
         json_data = [{"input": x} for x in input_data]
         return json_data
 
     def _post(self, input_data):
-        url = self.url + "/run"  # TODO: change to /run
+        url = self.url + "/run"
         headers = {"accept": "*/*", "Content-Type": "application/json"}
         response = requests.post(url, headers=headers, json=input_data)
         return json.loads(response.text)
-
+    
     def run(self, input_data):
         input_type = self.info["metadata"]["Input"]
         input_shape = self.info["metadata"]["Input Shape"]
@@ -38,6 +38,7 @@ class ErsiliaClient(object):
             input_data=input_data, input_type=input_type, input_shape=input_shape
         ).parse()
         input_data_json = self._serialize_to_json(input_data=input_data)
+        print(input_data_json)
         result = self._post(input_data=input_data_json)
         output_data = MasterOutput(
             output=result, output_shape=output_shape, output_type=output_type
