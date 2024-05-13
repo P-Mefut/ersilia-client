@@ -9,9 +9,18 @@ class MasterOutput(object):
 
     def parse_as_dataframe(self):
         if self._output_type == ["Float"] and self._output_shape == "Single":
-            header = [x for x in self._output[0].keys()][0]
-            data = [float(x[header]) for x in self._output]
-            return pd.DataFrame({header: data})
+            if "result" in self._output.keys():
+                result = self._output["result"]
+                data = []
+                for r in result:
+                    for k,v in r.items():
+                        header = k
+                        data += [v]
+                return pd.DataFrame({header: data})
+            else:
+                header = [x for x in self._output[0].keys()][0]
+                data = [float(x[header]) for x in self._output]
+                return pd.DataFrame({header: data})
         if self._output_type == ["String"] and self._output_shape == "Single":
             header = [x for x in self._output[0].keys()][0]
             data = [str(x[header]) for x in self._output]

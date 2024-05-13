@@ -38,7 +38,6 @@ class ErsiliaClient(object):
             input_data=input_data, input_type=input_type, input_shape=input_shape
         ).parse()
         input_data_json = self._serialize_to_json(input_data=input_data)
-        print(input_data_json)
         result = self._post(input_data=input_data_json)
         output_data = MasterOutput(
             output=result, output_shape=output_shape, output_type=output_type
