@@ -9,15 +9,22 @@ class MasterOutput(object):
 
     def parse_as_dataframe(self):
         if self._output_type == ["Float"] and self._output_shape == "Single":
+            print("HERE 1")
             if "result" in self._output.keys():
+                print("HERE 2")
                 result = self._output["result"]
                 data = []
                 for r in result:
                     for k,v in r.items():
                         header = k
+                        if type(v) == list or type(v) == tuple:
+                            v = v[0]
+                        else:
+                            pass
                         data += [v]
                 return pd.DataFrame({header: data})
             else:
+                print("HERE 3")
                 header = [x for x in self._output[0].keys()][0]
                 data = [float(x[header]) for x in self._output]
                 return pd.DataFrame({header: data})
