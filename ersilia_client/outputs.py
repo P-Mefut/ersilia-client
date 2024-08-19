@@ -9,9 +9,7 @@ class MasterOutput(object):
 
     def parse_as_dataframe(self):
         if self._output_type == ["Float"] and self._output_shape == "Single":
-            print("HERE 1")
             if "result" in self._output.keys():
-                print("HERE 2")
                 result = self._output["result"]
                 data = []
                 for r in result:
