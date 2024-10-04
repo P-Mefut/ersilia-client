@@ -6,7 +6,7 @@ Ersilia Client is a Python client to interact with served Ersilia models. It is 
 
 You can install Ersilia Client directly from the source code:
 
-``bash
+```bash
 git clone https://github.com/ersilia-os/ersilia-client.git
 cd ersilia-client
 pip install -e .
