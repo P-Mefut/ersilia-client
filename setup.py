@@ -1,4 +1,7 @@
 from setuptools import setup, find_packages
+import sys
+
+print("WARNING: setup.py is deprecated. Please use `pip install -e .` instead.")
 
 setup(
     name='Ersilia Client',
