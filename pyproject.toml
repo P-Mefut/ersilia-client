@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=64.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "Ersilia-Client"
+version = "0.1.0"
+description = "Interact with served Ersilia models through a simple Python client"
+authors = [
+    {name = "Ersilia Open Source Initiative", email = "hello@ersilia.io"},
+]
+dependencies = [
+    "requests",
+    "pandas",
+]
+
+[project.urls]
+Homepage = "https://github.com/ersilia-os/ersilia-client"
