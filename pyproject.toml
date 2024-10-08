@@ -19,8 +19,8 @@ classifiers = [
     "Operating System :: OS Independent"
 ]
 dependencies = [
-    "requests",
-    "pandas"
+    "requests==2.31.0", 
+    "pandas==2.0.3"  
 ]
 
 [project.urls]
