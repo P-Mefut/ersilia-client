@@ -10,7 +10,7 @@ authors = [
     { name = "Ersilia Open Source Initiative", email = "hello@ersilia.io" }
 ]
 readme = "README.md"
-requires-python = ">=3.7"
+requires-python = ">=3.8"
 license = { text = "MIT" }
 keywords = ["ersilia", "client", "open-source"]
 classifiers = [
