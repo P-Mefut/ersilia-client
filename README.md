@@ -12,14 +12,6 @@ cd ersilia-client
 pip install -e .
 ```
 
-Note: If you encounter any issues with the installation, you can try the following command:
-
-```bash
-pip install -e . --config-settings editable_mode=compat
-```
-
-This alternative command uses a compatibility mode that might resolve certain installation problems.
-
 
 ## Usage
 
