@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ersilia-client"  
+version = "0.1.0"
+description = "Interact with served Ersilia models through a simple Python client"
+authors = [
+    { name = "Ersilia Open Source Initiative", email = "hello@ersilia.io" }
+]
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+keywords = ["ersilia", "client", "open-source"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent"
+]
+dependencies = [
+    "requests==2.32.3", 
+    "pandas==2.2.3"  
+]
+
+[project.urls]
+homepage = "https://github.com/ersilia-os/ersilia-client"
+
+[tool.setuptools]
+packages = ["ersilia_client"]
+package-dir = {"ersilia_client" = "ersilia_client"}

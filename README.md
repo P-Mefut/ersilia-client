@@ -9,8 +9,9 @@ You can install Ersilia Client directly from the source code:
 ```bash
 git clone https://github.com/ersilia-os/ersilia-client.git
 cd ersilia-client
-python setup.py install -e .
+pip install -e .
 ```
+
 
 ## Usage
 
